@@ -15,7 +15,7 @@
                     <li><a href="#tarifs">Tarifs</a></li>
                     <li><a href="#temoignages">Témoignages</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li ><a href="#contact">Contact</a></li>
+                    <li v-if="isAuthenticated === true"><a>Mes cours</a></li>
                     <li v-if="isAuthenticated === true"><a href="#contact">{{ currentUser ?currentUser.username : '' }}</a></li>
                     <li v-if="isAuthenticated === true"><a style="color: red;" @click="logout"><i class="fa fa-power-off"></i></a></li>
                     <li v-if="isAuthenticated === false"><a href="#contact" @click="Login"><i class="fa fa-user"></i> Se connecter</a></li>
@@ -486,8 +486,8 @@ section h2 {
 }
 
 .perso img {
-    width: 500px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -513,6 +513,10 @@ section h2 {
         width: 90%;
         /* Full width on smaller screens */
     }
+    .perso img {
+    width: 500px;
+    height: 500px;
+}
 }
 
 h2 {
