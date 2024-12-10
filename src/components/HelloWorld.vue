@@ -27,7 +27,7 @@
                 <p class="animate__animated animate__fadeInUp">Transformez votre rêve de conduire en réalité avec J & S
                     auto-école : une formation complète, personnalisée et sécurisée pour vous accompagner vers
                     l'indépendance et la réussite sur la route !</p>
-                <button @click="register">S'inscrire maintenant</button>
+                <button v-if="isAuthenticated === false" @click="register">S'inscrire maintenant</button>
             </section>
         </div>
     </header>
