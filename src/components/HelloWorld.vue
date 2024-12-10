@@ -302,6 +302,7 @@ export default {
 
             // Rediriger l'utilisateur vers la page de connexion
             this.$router.push("/");
+            this.isMenuActive = false;
         },
         async fetchCurrentUser() {
             const userId = localStorage.getItem('userId'); // Récupérer l'ID de l'utilisateur connecté depuis le localStorage
