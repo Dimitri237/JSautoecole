@@ -15,6 +15,10 @@
                     <li><a href="#tarifs">Tarifs</a></li>
                     <li><a href="#temoignages">Témoignages</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li ><a href="#contact">Contact</a></li>
+                    <li v-if="isAuthenticated === true"><a href="#contact">{{ currentUser ?currentUser.username : '' }}</a></li>
+                    <li v-if="isAuthenticated === true"><a style="color: red;" @click="logout"><i class="fa fa-power-off"></i></a></li>
+                    <li v-if="isAuthenticated === false"><a href="#contact" @click="Login"><i class="fa fa-user"></i> Se connecter</a></li>
                 </ul>
             </nav>
             <section id="home" class="hero">
@@ -23,7 +27,7 @@
                 <p class="animate__animated animate__fadeInUp">Transformez votre rêve de conduire en réalité avec J & S
                     auto-école : une formation complète, personnalisée et sécurisée pour vous accompagner vers
                     l'indépendance et la réussite sur la route !</p>
-                <button>S'inscrire maintenant</button>
+                <button @click="register">S'inscrire maintenant</button>
             </section>
         </div>
     </header>
@@ -257,16 +261,72 @@
 
 
 <script>
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '@/config/firebaseConfig';
 export default {
+    components: {
+    },
     data() {
         return {
             isMenuActive: false,
+            isAuthenticated: false,
+            currentUser: null,
         };
     },
+    mounted() {
+        this.fetchCurrentUser();
+    },
+    created() {
+        // Récupérer les informations d'authentification depuis le localStorage
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        const userId = localStorage.getItem('userId');
+
+        // Mettre à jour les données du composant avec les informations récupérées
+        this.isAuthenticated = isAuthenticated === 'true';
+        this.userId = userId;
+
+        if (this.isAuthenticated) {
+            // Récupérer les véhicules associés à l'ID de l'utilisateur
+            this.fetchCurrentUser();
+        }
+    },
     methods: {
+        logout() {
+            // Supprimer les informations de connexion de localStorage
+            localStorage.removeItem('isAuthenticated');
+            localStorage.removeItem('userId');
+
+            // Réinitialiser les variables de l'état de connexion
+            this.isAuthenticated = false;
+            this.userId = null;
+
+            // Rediriger l'utilisateur vers la page de connexion
+            this.$router.push("/");
+        },
+        async fetchCurrentUser() {
+            const userId = localStorage.getItem('userId'); // Récupérer l'ID de l'utilisateur connecté depuis le localStorage
+
+            const usersRef = collection(db, 'USERS');
+            const queryRef = query(usersRef, where('_id', '==', userId));
+
+            try {
+                const querySnapshot = await getDocs(queryRef);
+                if (!querySnapshot.empty) {
+                    this.currentUser = querySnapshot.docs[0].data();
+                }
+            } catch (error) {
+                console.error('Erreur lors de la récupération de l\'utilisateur connecté :', error);
+            }
+        },
         toggleMenu() {
             this.isMenuActive = !this.isMenuActive;
         },
+        Login() {
+            this.$router.push("./auth")
+        },
+        register() {
+            this.$router.push("./CreateAccount")
+        }
     },
 };
 </script>
@@ -315,7 +375,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 nav ul li a {
@@ -443,7 +503,7 @@ section h2 {
 }
 
 .network a:hover {
-    color: #007BFF;
+    color: rgb(16, 91, 128);
     /* Change to a hover color */
 }
 
@@ -880,21 +940,27 @@ footer {
         /* Show the toggle button */
     }
 }
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .hero h2 {
-        font-size: 2em; /* Smaller font size for headings */
+        font-size: 2em;
+        /* Smaller font size for headings */
     }
 
     .hero p {
-        font-size: 1em; /* Smaller font size for paragraph */
+        font-size: 1em;
+        /* Smaller font size for paragraph */
     }
 
     .hero button {
-        font-size: 1.5em; /* Smaller button text */
-        padding: 15px 16px; /* Adjust padding for smaller screens */
+        font-size: 1.5em;
+        /* Smaller button text */
+        padding: 15px 16px;
+        /* Adjust padding for smaller screens */
         margin-top: 10vh;
     }
 }
+
 /* Add additional breakpoints as needed */
 </style>
