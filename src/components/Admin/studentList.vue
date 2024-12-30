@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h2>Tableau des Permis</h2>
+    <h2>Liste des Etudiants</h2>
+   <div class="table-responsive">
     <table class="permis-table">
       <thead>
         <tr>
@@ -18,7 +19,7 @@
           <td>{{ eleve.contact }}</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </template>
 <script>
@@ -58,6 +59,10 @@ export default {
 };
 </script>
 <style scoped>
+.table-responsive {
+  overflow-x: auto;
+}
+
 .permis-table {
   width: 100%;
   border-collapse: collapse;
@@ -65,16 +70,26 @@ export default {
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .permis-table th, .permis-table td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+
 .permis-table th {
   background-color: #4CAF50;
   color: white;
 }
+
 .permis-table tr:hover {
   background-color: #f1f1f1;
+}
+
+@media (max-width: 600px) {
+  .permis-table th, .permis-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
 }
 </style>
