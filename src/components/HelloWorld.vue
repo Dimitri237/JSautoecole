@@ -202,14 +202,16 @@
         <p style="width: 90%; margin: auto;">Découvrez nos tarifs compétitifs pour toutes nos formations :</p>
         <ul class="tarifs-list">
             <li>Cours de conduite (1 heure) : 30 000 FCFA</li>
-            <li>Formation accélérée (permis B) : 600 000 FCFA</li>
+            <li>Formation accélérée (permis B) : 150 000 FCFA</li>
             <li>Préparation au code de la route : 50 000 FCFA</li>
             <li>Tests blancs : 10 000 FCFA par séance</li>
-            <li>Permis A (moto) : 400 000 FCFA</li>
-            <li>Permis C (poids lourds) : 800 000 FCFA</li>
+            <li>Permis A  : 50 000 FCFA</li>
+            <li>Permis B  : 100 000 FCFA</li>
+            <li>Permis C  : 250 000 FCFA</li>
+            <li>Permis D  : 250 000 FCFA</li>
             <li>Formation à la conduite défensive : 70 000 FCFA</li>
             <li>Stage de récupération de points : 100 000 FCFA</li>
-            <li>Suivi personnalisé : 20 000 FCFA par séance</li>
+            <li>Suivi personnalisé : 200 000 FCFA </li>
             <li>Location de véhicule (par heure) : 15 000 FCFA</li>
         </ul>
     </section>
