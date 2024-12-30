@@ -15,10 +15,10 @@
                     <li><a href="#tarifs">Tarifs</a></li>
                     <li><a href="#temoignages">Témoignages</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li v-if="isAuthenticated === true"><a>Mes cours</a></li>
-                    <li v-if="isAuthenticated === true"><a href="#contact">{{ currentUser ?currentUser.username : '' }}</a></li>
+                    <li><router-link to="/mesCours">Mes cours</router-link></li>
+                    <!-- <li v-if="isAuthenticated === true"><a href="#contact">{{ currentUser ?currentUser.username : '' }}</a></li>
                     <li v-if="isAuthenticated === true"><a style="color: red;" @click="logout"><i class="fa fa-power-off"></i></a></li>
-                    <li v-if="isAuthenticated === false"><a href="#contact" @click="Login"><i class="fa fa-user"></i> Se connecter</a></li>
+                    <li v-if="isAuthenticated === false"><a href="#contact" @click="Login"><i class="fa fa-user"></i> Se connecter</a></li> -->
                 </ul>
             </nav>
             <section id="home" class="hero">

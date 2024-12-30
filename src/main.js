@@ -3,11 +3,13 @@ import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import CreateAccount from '@/components/registerPage.vue';
 import AuthentificationPage from '@/components/loginPage.vue';
+import mesCours from '@/components/mesCours.vue';
 import Home from '@/components/HelloWorld.vue';
 
 const routes = [
   { path: '/', component: Home },
   { path: '/CreateAccount', component: CreateAccount },
+  { path: '/mesCours', component: mesCours },
   { path: '/auth', component: AuthentificationPage },
  
 ];

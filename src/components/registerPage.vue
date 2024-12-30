@@ -11,29 +11,48 @@
         <input type="date" v-model="date_naissance" required />
       </div>
       <div class="form-group">
-        <label for="contact">Telephone</label>
-        <input type="text" v-model="contact" required />
+        <label for="username">Sexe</label>
+        <select name="" v-model="type_permis" id="">
+          <option value="A">Masculin</option>
+          <option value="A">Feminin</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="username">Type de permis</label>
-        <select name="" v-model="type_permis" id="">
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-          <option value="E">E</option>
-        </select>
+        <label for="contact">Telephone</label>
+        <input type="text" v-model="contact" required />
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" v-model="email" required />
       </div>
       <div class="form-group">
+        <label for="username">Type de permis</label>
+        <select name="" v-model="type_permis" id="">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <!-- <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option> -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="username">Type de formation</label>
+        <select name="" v-model="type_permis" id="">
+          <option value="A">Normale</option>
+          <option value="A">Acelere</option>
+          <option value="B">Recyclage</option>
+          <option value="B">Suivis particulier</option>
+          <!-- <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option> -->
+        </select>
+      </div>
+      <!-- <div class="form-group">
         <label for="password">Mot de passe</label>
         <input type="password" v-model="password" required />
-      </div>
+      </div> -->
       <button type="submit">S'inscrire</button>
-      <p>Déjà un compte ? <router-link to="/auth">Connectez-vous</router-link></p>
+      <!-- <p>Déjà un compte ? <router-link to="/auth">Connectez-vous</router-link></p> -->
     </form>
     <p><router-link style="color: rgba(0, 0, 0, 0.7); text-decoration: none; font-weight: bold; font-size: 20px;"
         to="/">Acceuil</router-link></p>
@@ -75,7 +94,7 @@ export default {
 
       setDoc(doc(firestore, 'USERS', user._id), { ...user })
         .then(() => {
-          this.$router.push("/auth");
+          this.$router.push("/");
         })
         .catch((error) => {
           console.error("Error writing document: ", error);
@@ -93,9 +112,9 @@ export default {
 <style scoped>
 .auth-container {
   max-width: 600px;
-  margin-top: 5vh !important;
+  
   margin: auto;
-  padding: 20px;
+  padding: 0px 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 }
