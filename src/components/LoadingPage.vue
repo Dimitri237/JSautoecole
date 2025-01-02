@@ -8,7 +8,7 @@
 export default {
   mounted() {
     setTimeout(() => {
-      this.$router.push('/AuthPage');
+      this.$router.push('/home');
     }, 4000);
   },
 };
