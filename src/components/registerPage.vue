@@ -47,12 +47,12 @@
           <option value="E">E</option> -->
         </select>
       </div>
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label for="password">Mot de passe</label>
         <input type="password" v-model="password" required />
-      </div> -->
+      </div>
       <button type="submit">S'inscrire</button>
-      <!-- <p>Déjà un compte ? <router-link to="/auth">Connectez-vous</router-link></p> -->
+      <p>Déjà un compte ? <router-link to="/auth">Connectez-vous</router-link></p>
     </form>
     <p><router-link style="color: rgba(0, 0, 0, 0.7); text-decoration: none; font-weight: bold; font-size: 20px;"
         to="/">Acceuil</router-link></p>
@@ -94,7 +94,7 @@ export default {
 
       setDoc(doc(firestore, 'USERS', user._id), { ...user })
         .then(() => {
-          this.$router.push("/");
+          this.$router.push("/auth");
         })
         .catch((error) => {
           console.error("Error writing document: ", error);

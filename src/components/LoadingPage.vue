@@ -9,7 +9,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.$router.push('/home');
-    }, 4000);
+    }, 3000);
   },
 };
 </script>
