@@ -1,47 +1,38 @@
 <template>
-  <header>
-    <div class="sect">
-      <nav class="navbar">
-        <div class="navbar-brand">Auto-école J&S</div>
-        <div class="navbar-toggle" @click="toggleMenu">
-          <span class="toggle-icon"></span>
-          <span class="toggle-icon"></span>
-          <span class="toggle-icon"></span>
-        </div>
-        <ul class="navbar-menu" :class="{ active: isMenuActive }">
-          <li><a href="#home">Accueil</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#tarifs">Tarifs</a></li>
-          <li><a href="#temoignages">Témoignages</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><router-link to="/mesCours">Mes cours</router-link></li>
-          <li>
-            <router-link to="/adminConnect"><i class="fa fa-user"></i></router-link>
-          </li>
-          <!-- <li v-if="isAuthenticated === true"><a href="#contact">{{ currentUser ?currentUser.username : '' }}</a></li>
+    <header>
+        <div class="sect">
+            <nav class="navbar">
+                <div class="navbar-brand"><router-link style="color: white; text-decoration: none;" to="/adminConnect">Auto-école J&S</router-link></div>
+                <div class="navbar-toggle" @click="toggleMenu">
+                    <span class="toggle-icon"></span>
+                    <span class="toggle-icon"></span>
+                    <span class="toggle-icon"></span>
+                </div>
+                <ul class="navbar-menu" :class="{ active: isMenuActive }">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><router-link v-if="isAuthenticated === true" to="/mesCours">Mes cours</router-link></li>
+                    <li v-if="isAuthenticated === true"><a >{{ currentUser ?currentUser.username : '' }}</a></li>
                     <li v-if="isAuthenticated === true"><a style="color: red;" @click="logout"><i class="fa fa-power-off"></i></a></li>
-                    <li v-if="isAuthenticated === false"><a href="#contact" @click="Login"><i class="fa fa-user"></i> Se connecter</a></li> -->
-        </ul>
-      </nav>
-      <section id="home" class="hero">
-        <h2 class="animate__animated animate__fadeInUp">
-          Confiance <label>.</label> Sécurité <label>.</label> Compétence <br />
-          Réussite
-        </h2>
-        <p class="animate__animated animate__fadeInUp">
-          Transformez votre rêve de conduire en réalité avec J & S auto-école : une
-          formation complète, personnalisée et sécurisée pour vous accompagner vers
-          l'indépendance et la réussite sur la route !
-        </p>
-        <button v-if="isAuthenticated === false" @click="register">
-          S'inscrire maintenant
-        </button>
-      </section>
-    </div>
-  </header>
-  <section id="apropos">
-    <h2 style="text-align: center; color: rgb(16, 91, 128)">À Propos</h2>
+                    <li v-if="isAuthenticated === false"><a @click="Login"><i class="fa fa-user"></i> Se connecter</a></li>
+                </ul>
+            </nav>
+            <section id="home" class="hero">
+                <h2 class="animate__animated animate__fadeInUp">Confiance <label>.</label> Sécurité <label>.</label>
+                    Compétence <br> Réussite</h2>
+                <p class="animate__animated animate__fadeInUp">Transformez votre rêve de conduire en réalité avec J & S
+                    auto-école : une formation complète, personnalisée et sécurisée pour vous accompagner vers
+                    l'indépendance et la réussite sur la route !</p>
+                <button v-if="isAuthenticated === false" @click="register">S'inscrire maintenant</button>
+            </section>
+        </div>
+    </header>
+    <section id="apropos">
+        <h2 style="text-align: center; color: rgb(16, 91, 128);">À Propos</h2>
 
     <div class="inAbout animate__animated animate__fadeInUp">
       <div class="image-container">
