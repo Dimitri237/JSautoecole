@@ -63,7 +63,7 @@
             <h2>Sécurité Routière</h2>
             <p>La sécurité routière est primordiale pour éviter les accidents. Voici quelques conseils :</p>
             <ol>
-                <li><strong>Ceinture de sécurité :</strong> Attachez toujours votre ceinture de sécurité, ainsi que celle de vos passagers.</li>
+                <li><strong>Ceinture  de sécurité :</strong> Attachez toujours votre ceinture de sécurité, ainsi que celle de vos passagers.</li>
                 <li><strong>Alcool et drogues :</strong> Ne conduisez jamais sous l'influence de l'alcool ou de drogues. Cela altère vos réflexes et votre jugement.</li>
                 <li><strong>Vigilance :</strong> Restez attentif à votre environnement. Évitez les distractions comme l'utilisation de votre téléphone portable.</li>
                 <li><strong>Distance de sécurité :</strong> Maintenez une distance de sécurité suffisante avec le véhicule qui vous précède pour réagir en cas de freinage brusque.</li>
